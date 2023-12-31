@@ -8,9 +8,11 @@ public class Resource {
     private int available;
     private final Lock lock = new ReentrantLock();
     private final Condition condition = lock.newCondition();
+    public int maxAvailable;
 
-    public Resource(int available) {
+    public Resource(int available,int maxAvailable) {
         this.available = available;
+        this.maxAvailable = maxAvailable;
     }
 
     public void lock() throws InterruptedException {

@@ -34,9 +34,8 @@ public class FirstPriList {
 		Item item = kuyruk.kuyruktanCikar();
 
 		// Rastgele renkleri kullanarak yazıyı biçimlendirme
-		text = String.format(
-				"\033[38;2;%d;%d;%dm%2d sn proses basladi         (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m", r,
-				g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+		text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t RUNNING",
+				item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 		System.out.println(text);
 
@@ -50,18 +49,16 @@ public class FirstPriList {
 
 			item.oncelik++;
 
-			text = String.format(
-					"\033[38;2;%d;%d;%dm%2d sn proses askida          (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-					r, g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+			text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t RUNNING",
+					item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 			System.out.println(text);
 
 			spl.SPL_add(item); // 2. öncelikli kuyruğa atama
 
 		} else {
-			text = String.format(
-					"\033[38;2;%d;%d;%dm%2d sn proses sonlandi        (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-					r, g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+			text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t COMPLATED",
+					item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 			System.out.println(text);
 		}
