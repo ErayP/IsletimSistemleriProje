@@ -9,6 +9,8 @@ public class Main {
 
 		Prosesler p1 = new Prosesler(dl);
 
+		System.out.println("Pid \t varış \t öncelik \t cpu \t MBytes \t prn \t scn \t modem \t cd \t status \r\n"
+				+ "=================================================================================================");
 		p1.process();
 	}
 }

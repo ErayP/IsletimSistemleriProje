@@ -35,13 +35,14 @@ public class Prosesler {
 
 				if (ch == ' ')
 					continue;
-
+				
 				else if (j == satir.length() - 1) {// son satirdaki veriyi de almayi sagliyor ve ilgili Item degerine
-													// atamayi sagliyor
+					// atamayi sagliyor
 					veri += ch;
-					item.burstTime = Integer.parseInt(veri);
-
-				} else if (ch != ',') {// verileri veri nesnesine atamayi sagliyor ve verileri ayirmayi sagliyor
+					item.KullanilanCd = Integer.parseInt(veri);
+				}
+				
+				else if (ch != ',') {// verileri veri nesnesine atamayi sagliyor ve verileri ayirmayi sagliyor
 					veri += ch;
 
 				} else {// alinan verileri ilgili Item degerlerine atiyor
@@ -55,16 +56,19 @@ public class Prosesler {
 						item.oncelik = Integer.parseInt(veri);
 						break;
 					case 2:
-						item.KullanilanYazici = Integer.parseInt(veri);
+						item.burstTime = Integer.parseInt(veri);
 						break;
 					case 3:
-						item.KullanilanTarayici = Integer.parseInt(veri);
+						item.mBayt = Integer.parseInt(veri);
 						break;
 					case 4:
-						item.KullanilanModem = Integer.parseInt(veri);
+						item.KullanilanYazici = Integer.parseInt(veri);
 						break;
 					case 5:
-						item.KullanilanCd = Integer.parseInt(veri);
+						item.KullanilanTarayici = Integer.parseInt(veri);
+						break;
+					case 6:
+						item.KullanilanModem = Integer.parseInt(veri);
 						break;
 					}
 

@@ -35,9 +35,8 @@ public class RRList {
 		Item item = kuyruk.Getir(sayac);
 
 		// Rastgele renkleri kullanarak yazıyı biçimlendirme
-		text = String.format(
-				"\033[38;2;%d;%d;%dm%2d sn proses basladi         (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m", r,
-				g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+		text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t RUNNING",
+				item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 		System.out.println(text);
 
@@ -48,9 +47,8 @@ public class RRList {
 											// işlem için harcadığı zaman)
 
 		if (item.burstTime == 0) { //proses tamamen harcanmışsa yok edilir
-			text = String.format(
-					"\033[38;2;%d;%d;%dm%2d sn proses sonlandi        (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-					r, g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+			text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t COMPLATED",
+					item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 			System.out.println(text);
 
@@ -60,9 +58,8 @@ public class RRList {
 				sayac = 0;							//böylelikle sayac tekrar başa dönebilsin
 				
 		} else { // kuyrukta round robin mantığına göre sırayla ilerlemeyi ve bir sonraki elemanı almayı sağlıyor
-			text = String.format(
-					"\033[38;2;%d;%d;%dm%2d sn proses askida          (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-					r, g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);
+			text = String.format(" %d \t   %d \t  %d \t \t \t \t \t %d \t %d \t   %d \t   %d \t RUNNING",
+					item.id, item.varis, item.oncelik, item.KullanilanYazici, item.KullanilanTarayici, item.KullanilanModem, item.KullanilanCd);
 
 			System.out.println(text);
 

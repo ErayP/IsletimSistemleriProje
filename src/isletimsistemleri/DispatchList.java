@@ -22,10 +22,10 @@ public class DispatchList {
 		resources = new HashMap<>();
 		dispatchList = new LinkedList<Item>();
 		
-		 resources.put("printer", new Resource(2));
-	     resources.put("scanner", new Resource(1));
-	     resources.put("modem", new Resource(1));
-	     resources.put("cd-drive", new Resource(2));
+		 resources.put("printer", new Resource(2,2));
+	     resources.put("scanner", new Resource(1,1));
+	     resources.put("modem", new Resource(1,1));
+	     resources.put("cd-drive", new Resource(2,2));
 	}
 
 	public void ListeyeEkle(Item item) {
@@ -42,7 +42,7 @@ public class DispatchList {
 																											// itemler
 																											// kullanıldığında
 																											// ve tüm
-																											// listeler
+																										// listeler
 																											// boşaldığında
 																											// duracak
 			for (int i = 0; i < size; i++) {// tüm listeyi dolaşıp zamana göre atama yapılmasını sağlıyor
@@ -109,8 +109,7 @@ public class DispatchList {
 				int b = rng.nextInt(256);
 
 				text = String.format(
-						"\033[38;2;%d;%d;%dm%d sn proses zamanasimi      (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-						r, g, b, gecenZaman, item.id, item.oncelik, item.burstTime);
+						" %d HATA - Proses zaman aşımı (20 sn de tamamlanamadı)",item.id);
 
 				System.out.println(text);
 
@@ -134,8 +133,7 @@ public class DispatchList {
 				int b = rng.nextInt(256);
 
 				text = String.format(
-						"\033[38;2;%d;%d;%dm%d sn proses zamanasimi      (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-						r, g, b, gecenZaman, item.id, item.oncelik, item.burstTime);
+						" %d HATA - Proses zaman aşımı (20 sn de tamamlanamadı)",item.id);
 
 				System.out.println(text);
 
@@ -156,8 +154,7 @@ public class DispatchList {
 				int b = rng.nextInt(256);
 
 				text = String.format(
-						"\033[38;2;%d;%d;%dm%d sn proses zamanasimi      (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-						r, g, b, gecenZaman, item.id, item.oncelik, item.burstTime);
+						" %d HATA - Proses zaman aşımı (20 sn de tamamlanamadı)",item.id);
 
 				System.out.println(text);
 
@@ -177,8 +174,7 @@ public class DispatchList {
 				int b = rng.nextInt(256);
 
 				text = String.format(
-						"\033[38;2;%d;%d;%dm%d sn proses zamanasimi      (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
-						r, g, b, gecenZaman, item.id, item.oncelik, item.burstTime);
+						" %d HATA - Proses zaman aşımı (20 sn de tamamlanamadı)",item.id);
 
 				System.out.println(text);
 
