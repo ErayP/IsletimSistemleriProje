@@ -6,4 +6,9 @@ public class Item {
 	int oncelik;
 	int id;
 	int askiyaAlinma;
+	int KullanilanYazici;
+	int KullanilanTarayici;
+	int KullanilanModem;
+	int KullanilanCd;
+	
 }

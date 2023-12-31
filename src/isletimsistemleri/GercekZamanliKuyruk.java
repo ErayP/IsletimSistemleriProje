@@ -29,9 +29,39 @@ public class GercekZamanliKuyruk {
 		int timer = 0;// prosesin işlem gördüğü toplam zamanı tutan değer
 
 		String text = "";
-
 		Item item = kuyruk.kuyruktanCikar();
-
+		Resource printer = dl.resources.get("printer");
+		Resource scanner  = dl.resources.get("scanner");
+		Resource modem = dl.resources.get("modem");
+		Resource cd_drive = dl.resources.get("cd-drive");
+		for(int i = 0; i<item.KullanilanYazici;i++) {
+			try {
+				printer.lock();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		for(int i = 0; i<item.KullanilanTarayici;i++) {
+			try {
+				scanner.lock();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		for(int i = 0; i<item.KullanilanModem;i++) {
+			try {
+				modem.lock();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		for(int i = 0; i<item.KullanilanCd;i++) {
+			try {
+				cd_drive.lock();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 		// Rastgele renkleri kullanarak yazıyı biçimlendirme
 		text = String.format(
 				"\033[38;2;%d;%d;%dm%2d sn proses basladi         (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m", r,
@@ -47,7 +77,7 @@ public class GercekZamanliKuyruk {
 												// prosesin
 												// işlem için harcadığı zaman)
 
-			if (item.burstTime > 0) { // propses yürütülüyor
+			if (item.burstTime > 0) { // proses yürütülüyor
 
 				text = String.format(
 						"\033[38;2;%d;%d;%dm%2d sn proses yurutuluyor     (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
@@ -55,6 +85,20 @@ public class GercekZamanliKuyruk {
 
 				System.out.println(text);
 			} else {// propses yürütülüyor
+				
+				for(int i = 0; i<item.KullanilanYazici;i++) {
+						printer.unlock();
+				}
+				for(int i = 0; i<item.KullanilanYazici;i++) {
+					scanner.unlock();
+				}
+				for(int i = 0; i<item.KullanilanYazici;i++) {
+					modem.unlock();
+				}
+				for(int i = 0; i<item.KullanilanYazici;i++) {
+					cd_drive.unlock();
+				}
+				
 				text = String.format(
 						"\033[38;2;%d;%d;%dm%2d sn proses sonlandi        (id: %2d   oncelik:%2d  kalan sure:%2d sn)\033[0m",
 						r, g, b, (zaman + timer), item.id, item.oncelik, item.burstTime);

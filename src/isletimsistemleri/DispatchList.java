@@ -2,21 +2,30 @@ package isletimsistemleri;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Map;
+import java.util.HashMap;
 
 public class DispatchList {
+	public Map<String,Resource> resources;
 	LinkedList<Item> dispatchList;
 
 	KullanıcıIsıKuyruk uj = new KullanıcıIsıKuyruk();
-
+	
 	GercekZamanliKuyruk gzk = new GercekZamanliKuyruk();
 	FirstPriList fpl = new FirstPriList();
 	SecondPriList spl = fpl.spl;
 	RRList rr = spl.rr;
 
 	int damn_timer = 0;// Genel zaman
-
+	//resourceları tutan bir yapı oluşturacağız ve constructuerın içinde resourceları tek tek atayacğız ondan önce resource classı olusturmalıyız
 	public DispatchList() {
+		resources = new HashMap<>();
 		dispatchList = new LinkedList<Item>();
+		
+		 resources.put("printer", new Resource(2));
+	     resources.put("scanner", new Resource(1));
+	     resources.put("modem", new Resource(1));
+	     resources.put("cd-drive", new Resource(2));
 	}
 
 	public void ListeyeEkle(Item item) {

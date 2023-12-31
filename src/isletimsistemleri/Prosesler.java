@@ -54,6 +54,18 @@ public class Prosesler {
 					case 1:
 						item.oncelik = Integer.parseInt(veri);
 						break;
+					case 2:
+						item.KullanilanYazici = Integer.parseInt(veri);
+						break;
+					case 3:
+						item.KullanilanTarayici = Integer.parseInt(veri);
+						break;
+					case 4:
+						item.KullanilanModem = Integer.parseInt(veri);
+						break;
+					case 5:
+						item.KullanilanCd = Integer.parseInt(veri);
+						break;
 					}
 
 					veri = ""; //veri stringini sıfırlıyor
